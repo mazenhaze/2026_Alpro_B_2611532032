@@ -17,3 +17,42 @@ print("angka2 =", angka2, "| biner =", bin(angka2))
 hasil = angka1_2032 & angka2_2032
 print("\nBitwise AND (&)")
 print(angka1, "&", angka2, "=", hasil)
+print("biner hasil =", bin(hasil))
+print("biner hasil (8 bit) =", format(hasil, "08b"))
+
+# Bitwise OR
+hasil = angka1_2032 % angka2_2032
+print("\nBitwise OR (|)")
+print(angka1_2032, "|", angka2_2032, "=", hasil)
+print ("biner hasil =", bin(hasil))
+print("biner hasil (8 bit) =", format(hasil, "08b"))
+
+# Bitwise XOR
+hasil = angka1_2032 ^ angka2_2032
+print("\nBitwise XOR (^)")
+print(angka1_2032, "^", angka2_2032, "=", hasil)
+print("biner hasil =", bin(hasil))
+print("biner hasil (8bit) =", format(hasil, "08b"))
+
+# Bitwise NOT   
+hasil = ~angka1_2032
+print("\nBitwise NOT (~)")
+print("~", angka1_2032, "=", hasil)
+print("biner hasil =", bin(hasil))
+print("biner hasil (8 bit) =", format(hasil, "08b"))
+
+# Bitwise geser kiri
+jumlah_geser = int(input("\nMasukkan jumlah pergeseran bit: "))
+
+hasil = angka1_2032 << jumlah_geser
+print ("\nBitwise geser kiri (<<)")
+print(angka1_2032, "<<", jumlah_geser, "=", hasil)
+print("biner hasil =", bin(hasil))
+print("biner hasil (8 bit) =", format(hasil, "08b"))
+
+# Bitwise geser kanan
+hasil = angka1_2032 >> jumlah_geser
+print("\nBitwise geser kanan (>>)")
+print(angka1_2032, ">>", jumlah_geser, "=", hasil)
+print("biner hasil =", bin(hasil))
+print("biner hasil (8 bit) =", format(hasil, "08b"))
