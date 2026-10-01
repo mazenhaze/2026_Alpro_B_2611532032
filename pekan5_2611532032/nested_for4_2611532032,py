@@ -1,0 +1,55 @@
+# buat file dengan nama nested_for4_2032.py
+# buat program untuk perulangan for dalam python
+# nama variabel ditambah 4 digit terakhir nim contoh: ipk_2032
+# program ini menggunakan fungsi input()
+
+tinggi_2032 = int(input("masukkan tinggi pola (bilangan genap, misal 10): "))
+
+if tinggi_2032 % 2 != 0:
+    print("maaf, tinggi pola harus bilangan genap")
+else:
+    a_2032 = tinggi_2032
+    c_2032 = a_2032
+    lebar_2032 = (2 * tinggi_2032) - 2
+
+    for i_2032 in range(1, tinggi_2032 + 1):
+        b_2032 = c_2032 + 1
+
+        for j_2032 in range(1, lebar_2032 + 1):
+
+            # baris atas dan bawah
+            if i_2032 == 1 or i_2032 == tinggi_2032:
+                if j_2032 == 1 or j_2032 == lebar_2032:
+                    print("#", end="")
+                else:
+                    print("=", end="")
+
+            # baris isi
+            else:
+                if j_2032 == 1 or j_2032 == lebar_2032:
+                    print("|", end="")
+                else:
+                    if j_2032 == c_2032:
+                        print("<", end="")
+                    elif j_2032 == b_2032:
+                        print(">", end="")
+                    elif j_2032 == (lebar_2032 - c_2032):
+                        print("<", end="")
+                    elif j_2032 == (lebar_2032 - c_2032 + 1):
+                        print(">", end="")
+                    elif j_2032 > b_2032 and j_2032 < (lebar_2032 - c_2032):
+                        print("*", end="")
+                    else:
+                        print(" ", end="")
+
+        print()
+
+        # logika asli java
+        a_2032 -= 2
+
+        if a_2032 <= 0:
+            c_2032 = (-a_2032) + 2
+        else:
+            c_2032 = a_2032
+
+              
