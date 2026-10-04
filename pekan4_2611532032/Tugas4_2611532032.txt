@@ -1,0 +1,86 @@
+print("=== SISTEM LOKET ALPRO ADVENTURE PARK ===")
+nama_2032 = input("Masukkan Nama Pengunjung        : ")
+umur_2032 = int(input("Input umur anda                 : "))
+sim_2032 = input("Apakah Anda Sudah Punya SIM C (y/t): ").strip().lower()[0]
+
+print("\nPilihan Paket Wahana (1-5):")
+print("  1. Safari Rimba         (Rp 50,000)")
+print("  2. Arung Jeram          (Rp 75,000)")
+print("  3. Motor ATV Ekstrim    (Rp 120,000)")
+print("  4. Roller Coaster Kilat (Rp 100,000)")
+print("  5. All-Access VIP       (Rp 220,000)")
+paket_2032 = int(input("Masukkan nomor paket (1-5)      : "))
+jumlah_tiket_2032 = int(input("Masukkan jumlah tiket           : "))
+
+# 1) if tunggal - validasi kuota tiket
+if jumlah_tiket_2032 <= 0:
+    print("Peringatan: Jumlah tiket tidak valid!")
+
+# 2) match-case - pemilihan wahana (case 1-5 dan default _)
+match paket_2032:
+    case 1:
+        nama_wahana_2032 = "Wahana Safari Rimba"
+        harga_satuan_2032 = 50000
+    case 2:
+        nama_wahana_2032 = "Wahana Arung Jeram"
+        harga_satuan_2032 = 75000
+    case 3:
+        nama_wahana_2032 = "Wahana Motor ATV Ekstrim"
+        harga_satuan_2032 = 120000
+    case 4:
+        nama_wahana_2032 = "Wahana Roller Coaster Kilat"
+        harga_satuan_2032 = 100000
+    case 5:
+        nama_wahana_2032 = "Wahana All-Access VIP"
+        harga_satuan_2032 = 220000
+    case _:
+        print("Paket wahana tidak valid!")
+
+
+# 3) if-elif-else dengan operator logika (and, !=) - validasi izin kendali wahana
+if paket_2032 == 3 and umur_2032 >= 17 and sim_2032 == 'y':
+    print("Anda sudah dewasa dan boleh mengendarai ATV sendiri.")
+elif paket_2032 == 3 and umur_2032 >= 17 and sim_2032 != 'y':
+    print("Anda sudah dewasa tetapi tidak boleh bawa motor ATV (wajib didampingi instruktur).")
+elif paket_2032 == 3 and umur_2032 < 17 and sim_2032 == 'y':
+    print("Identitas tidak valid: Belum cukup umur memiliki SIM.")
+elif paket_2032 == 3:
+    print("Anda belum cukup umur dan tidak boleh bawa motor ATV.")
+elif umur_2032 >= 10:
+    print("Umur memenuhi syarat untuk menaiki wahana ini.")
+else:
+    print("Umur belum memenuhi syarat untuk menaiki wahana ini.")
+
+is_member_2032 = input("Apakah Anda member? (y/t)       : ").strip().lower()
+kode_promo_valid_2032 = input("Apakah kode promo valid? (y/t)  : ").strip().lower()
+
+subtotal_2032 = harga_satuan_2032 * jumlah_tiket_2032
+total_diskon_persen_2032 = 0
+
+# 4) multi-if terpisah - diskon terakumulasi (boleh saling menumpuk)
+if subtotal_2032 >= 200000:
+    total_diskon_persen_2032 += 10
+if is_member_2032 in ['y', 'ya']:
+    total_diskon_persen_2032 += 5
+if kode_promo_valid_2032 in ['y', 'ya']:
+    total_diskon_persen_2032 += 15
+if jumlah_tiket_2032 >= 5:
+    total_diskon_persen_2032 += 5
+
+nominal_diskon_2032 = subtotal_2032 * (total_diskon_persen_2032 / 100)
+total_bayar_2032 = subtotal_2032 - nominal_diskon_2032
+
+# 5) if-else - evaluasi kelulusan audit / bonus
+if total_bayar_2032 > 300000:
+    print("Selamat! Anda berhak mendapatkan Souvenir Gratis.")
+else:
+    print("Terima kasih telah berkunjung.")
+
+print("\n=== RINCIAN PEMBAYARAN ===")
+print(f"Nama Pengunjung   : {nama_2032}")
+print(f"Wahana Dipilih    : {nama_wahana_2032}")
+print(f"Jumlah Tiket      : {jumlah_tiket_2032}")
+print(f"Subtotal          : Rp {subtotal_2032:,.0f}")
+print(f"Total Diskon      : {total_diskon_persen_2032}%")
+print(f"Nominal Diskon    : Rp {nominal_diskon_2032:,.0f}")
+print(f"Total Bayar       : Rp {total_bayar_2032:,.0f}")
