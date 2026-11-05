@@ -1,0 +1,33 @@
+# 1.2 prediksi dan trace
+stock = 7
+sold = 0
+
+while stock >= 2:
+    stock -= 2
+    sold += 2
+
+print("sold:", sold, "left:", stock)
+
+# 1.3 perbaiki bug
+# Expected output: 5 4 3 2 1 (one per line), then Go! count
+count = 6
+
+while count > 1:
+    count -= 1
+    print(count)
+
+print("Go!")
+
+# 1.4 susun kode
+correct_pin = 1234
+MAX_ATTEMPTS = 3
+attempt = 1
+pin = input("Enter PIN: ")
+while pin != correct_pin and attempt < MAX_ATTEMPTS:
+        print("Incorrect PIN.")
+        attempt += 1
+        pin = input("Enter PIN: ")
+if pin == correct_pin:
+    print("Access granted.")
+else:
+    print("Account locked.")

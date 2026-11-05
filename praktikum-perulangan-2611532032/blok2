@@ -1,0 +1,16 @@
+# 2.2 prediksi range
+
+
+# 2.3 trace akumulasi
+for number in range(5, 1):
+    result *= number
+
+print("Result:", result)
+
+# 2.4 lengkapi kerangka
+number = int(input("Enter a number: "))
+for multiplier in range(1, 11):
+    result = number * multiplier
+    print(f"{number} x {multiplier} = {result}")
+
+# 2.5 pilih loop
